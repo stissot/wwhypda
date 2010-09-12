@@ -1,0 +1,37 @@
+<?php echo $this->doctype() ?>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<?php
+	echo $this->headTitle()."\n";
+	echo $this->headScript()
+					->prependFile($this->serverUrl() . $this->baseUrl('/js/common.js'))
+					->prependFile($this->serverUrl() . $this->baseUrl('/js/jquery.form.js'))
+					->prependFile($this->serverUrl() . $this->baseUrl('/js/jquery-1.4.2.min.js'));
+	echo $this->headLink()
+				->appendStylesheet($this->serverUrl() . $this->baseUrl('/css/common.css'), 'all')."\n";
+	?>
+</head>
+<body>
+<div class="body">
+	<?php echo $this->render('banner.phtml'); ?>
+	<div class="main">
+		<div class="contents contentsmain">
+			<div id="page_body" class="pagecontent">
+				<div class="leftcol" id="nav_menu">
+					<?php echo $this->render('rock_menu.phtml'); ?>
+				</div>
+				<div id="centercol">
+					<div class="columns">
+						<div class="maincontent">
+							<?php echo $this->layout()->content ?>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>
+	</div>
+</div>
+</body>
+</html>

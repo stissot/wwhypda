@@ -1,0 +1,23 @@
+<h1 class="page_title"><?php echo $this->rockType->name;
+if ($this->rockType->hasChildren()) {echo ", all families";} ?></h1>
+<div class="rockHeader">
+<?php if (!empty($this->rockType->image)): ?>
+	<div class="rockImage"><img src="<?php echo $this->rockType->image ?>" alt="" /></div>
+<?php endif; ?>
+	<div class="rockDescription"><?php echo $this->rockType->description ?>
+<?php if (!empty($this->rockType->link)): ?>
+	<a class="external" href="<?php echo $this->rockType->link ?>">Read more on Wikipedia…</a>
+<?php endif; ?>
+		<br/><br/><h3>Available measurements</h3>
+		<p>Only parameters with existing measurements for the selected criteria are shown.
+		Use the filters below to target the displayed mesurements.</p>
+	</div>
+</div>
+<?php
+echo $this->rockMeasFilter;
+?>
+<div id="rockParamSummary">
+<?php echo $this->render('rock-type/count.ajax.phtml'); ?>
+</div>
+<div id="data">
+</div>

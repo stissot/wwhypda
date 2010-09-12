@@ -1,0 +1,94 @@
+@CHARSET "UTF-8";
+
+.page_title {
+	height: 32px;
+	padding-left: 35px;
+	background: url('/images/rock32.png') no-repeat left center;
+}
+
+.rockHeader {
+	
+}
+
+.rockDescription {
+	float: left;
+	width: 465px;
+}
+
+.rockImage {
+	float: right;
+}
+
+#rockMeasFilter {
+	clear: both;
+	font-size: 0.8em;
+}
+
+#rockMeasFilter #scale {
+	width: 200px;
+}
+
+#rockMeasFilter #method {
+	width: 250px;
+}
+
+#rockMeasFilter #experiment {
+	width: 200px;
+}
+
+#rockMeasFilter td {
+	padding: 3px 10px 3px 0;
+}
+
+#rockMeasFilter label {
+	text-align: right;	
+}
+
+#rockMeasFilter label:after {
+	content: " :";
+}
+
+table.rockParamSummary {
+	margin-top: 20px;	
+}
+
+table.rockParamSummary thead, .rockParamSummary tfoot {
+	background: url('/images/vgradient_gray.png') repeat-x;
+}
+
+table.rockParamSummary .colParameter {
+	width: 230px;
+}
+
+table.rockParamSummary .colMeasurements {
+	width: 150px;
+	text-align: center;
+}
+
+table.rockParamSummary .colRaw, table.rockParamSummary .colStats {
+	width: 90px;
+}
+
+table.rawData {
+	font-size: 0.9em;
+}
+
+table.rawData thead {
+	background: url('/images/vgradient_gray.png') repeat-x;
+}
+
+table.rawData .colValue {
+	width: 100px;
+}
+
+table.rawData .colScale {
+	width: 50px;
+}
+
+table.rawData .colQuality, table.rawData .colFracturation {
+	width: 100px;
+}
+
+table.rawData .colCustom {
+	width: 370px;
+}

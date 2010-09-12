@@ -1,0 +1,34 @@
+<h3><?php echo ucfirst($this->parameter->name).' of '.$this->rockType->name; ?> <span class="legend">(<?php echo count($this->measurements); ?> measurements)</span></h3>
+<table class="rawData">
+<col class="colValue" />
+<col class="colScale" />
+<col class="colQuality" />
+<col class="colFracturation" />
+<col class="colCustom" />
+<thead><tr>
+	<th><?php echo $this->parameter->htmlCode.' ['.$this->parameter->htmlUnits.']'; ?></th>
+	<th>scale</th>
+	<th>quality</th>
+	<th>fracturation</th>
+	<th>site/source</th>
+</tr></thead>
+<tbody>
+<?php
+	$line=1;
+	foreach ($this->measurements as $m):
+		$sample = $m->getSample();
+		$site = $sample->getSite();
+		$source = $sample->getMeasureGroup()->getSource();
+?>
+		<tr<?php echo ($line%2==0 ? ' class="even"' : ' class="odd"'); ?>>
+			<td><?php echo $m->value; ?></td>
+			<td><?php echo $sample->getScale()->name; ?></td>
+			<td><?php echo $m->getQuality()->name; ?></td>
+			<td><?php echo $sample->getFracturation()->degree; ?></td>
+<!--  		<td><?php echo $site->name.', '.$site->region.' ('.$site->country.')'; ?></td> -->
+			<td><?php echo $source->authors.', '.$source->title.' ('.$source->year.')'; ?></td>
+		</tr>
+<?php 	$line++;
+	endforeach; ?>
+</tbody>
+</table>

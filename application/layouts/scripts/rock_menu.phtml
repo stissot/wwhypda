@@ -1,0 +1,24 @@
+<h3>Rock types</h3>
+<div class="rockTree tree">
+	<ul>
+	<?php foreach ($this->rockTypes as $rockType): ?>
+		<li><a href="#<?php echo $rockType->idRockType ?>"><?php echo $rockType->name ?></a>
+			<?php if ($rockType->hasChildren()): ?>
+			<ul>
+			<?php foreach($rockType->getChildren() as $rockType2): ?>
+				<li><a href="#<?php echo $rockType2->idRockType ?>"><?php echo $rockType2->name ?></a>
+				<?php if ($rockType2->hasChildren()): ?>
+				<ul>
+				<?php foreach($rockType2->getChildren() as $rockType3): ?>
+					<li><a href="#<?php echo $rockType3->idRockType ?>"><?php echo $rockType3->name ?></a></li>
+				<?php endforeach; ?>
+				</ul>
+				<?php endif; ?>
+				</li>
+			<?php endforeach; ?>
+			</ul>
+			<?php endif; ?>
+		</li>
+	<?php endforeach; ?>
+	</ul>
+</div>

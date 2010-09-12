@@ -1,0 +1,37 @@
+<table class="rockParamSummary">
+<col class="colParameter" />
+<col class="colMeasurements" />
+<col class="colRaw" />
+<col class="colStats" />
+<thead><tr>
+	<th>Parameter</th>
+	<th>&#35; of measurements</th>
+	<th colspan="2">view data</th>
+</tr></thead>
+<tbody>
+<?php
+	$line=1;
+	$totalMeasurements = 0;
+	foreach ($this->parameters as $parameter):
+		$measurements = $this->rockType->getMeasurements($parameter->idParameter, $this->filters);
+		$numMeasurements = count($measurements);
+		$totalMeasurements += $numMeasurements;
+		if ($numMeasurements > 0):
+?>
+			<tr<?php echo ($line%2==0 ? ' class="even"' : ' class="odd"') ?>>
+				<td><?php echo $parameter->htmlCode.' '.$parameter->name; ?></td>
+				<td><?php echo $numMeasurements; ?></td>
+				<td><a class="viewData" href="<?php echo $this->url(array_merge($this->params,array('action'=>'data','param'=>$parameter->idParameter)));  ?>">raw data</a></td>
+				<td><a class="viewData" href="<?php echo $this->url(array_merge($this->params,array('action'=>'stats','param'=>$parameter->idParameter)));  ?>">statistics</a></td>
+			</tr>
+<?php 		$line++;
+		endif;
+	endforeach; ?>
+</tbody>
+<tfoot><tr>
+	<th>Total</th>
+	<th><?php echo $totalMeasurements; ?></th>
+	<th><a class="viewData" href="<?php echo $this->url(array_merge($this->params,array('action'=>'data','param'=>null)));  ?>">raw data</a></th>
+	<th><a class="viewData" href="<?php echo $this->url(array_merge($this->params,array('action'=>'stats','param'=>null)));  ?>">statistics</a></th>
+</tr></tfoot>
+</table>
