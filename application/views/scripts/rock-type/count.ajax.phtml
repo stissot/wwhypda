@@ -2,11 +2,10 @@
 <col class="colParameter" />
 <col class="colMeasurements" />
 <col class="colRaw" />
-<col class="colStats" />
 <thead><tr>
 	<th>Parameter</th>
 	<th>&#35; of measurements</th>
-	<th colspan="2">view data</th>
+	<th>view data</th>
 </tr></thead>
 <tbody>
 <?php
@@ -22,7 +21,6 @@
 				<td><?php echo $parameter->htmlCode.' '.$parameter->name; ?></td>
 				<td><?php echo $numMeasurements; ?></td>
 				<td><a class="viewData" href="<?php echo $this->url(array_merge($this->params,array('action'=>'data','param'=>$parameter->idParameter)));  ?>">raw data</a></td>
-				<td><a class="viewData" href="<?php echo $this->url(array_merge($this->params,array('action'=>'stats','param'=>$parameter->idParameter)));  ?>">statistics</a></td>
 			</tr>
 <?php 		$line++;
 		endif;
@@ -31,7 +29,6 @@
 <tfoot><tr>
 	<th>Total</th>
 	<th><?php echo $totalMeasurements; ?></th>
-	<th><a class="viewData" href="<?php echo $this->url(array_merge($this->params,array('action'=>'data','param'=>null)));  ?>">raw data</a></th>
-	<th><a class="viewData" href="<?php echo $this->url(array_merge($this->params,array('action'=>'stats','param'=>null)));  ?>">statistics</a></th>
+	<th></th>
 </tr></tfoot>
 </table>

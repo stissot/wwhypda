@@ -9,8 +9,8 @@ class RockTypeController extends Zend_Controller_Action
     public function init()
     {
     	/* Initialize action controller here */
-    	$this->view->headScript()->appendFile('/js/rock-tree.js')->appendFile('/js/jquery.jstree.js');
-    	$this->view->headLink()->appendStylesheet('/css/rock-type.css');
+    	$this->view->headScript()->appendFile('/js/rock-tree.js')->appendFile('/js/jquery.jstree.js')->appendFile('/js/jquery.lightbox-0.5.js');
+    	$this->view->headLink()->appendStylesheet('/css/rock-type.css')->appendStylesheet('/css/jquery.lightbox-0.5.css');
     	$rockTypes = My_Model_RockTypeMapper::findAll();
         $this->view->rockTypes = $rockTypes;
         

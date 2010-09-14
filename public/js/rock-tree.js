@@ -44,13 +44,14 @@ function loadDetail(rockId) {
 function registerDataLinks() {
 	$('#loading').hide();
 	$('a.viewData').click(function(e) {
+		$('#loading').show();
 		$('#data').load($(this).attr('href'), registerRawEdit)
 		return false;
 	});
 }
 
 function registerRawEdit() {
-	console.log('success');
+	$('#loading').hide();
 }
 
 // pre-submit callback

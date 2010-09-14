@@ -183,6 +183,17 @@ html, body {
 	line-height: 1.5;
 }
 
+#loading {
+	width: 16px;
+	height: 16px;
+	background: url('/images/loading.gif') no-repeat center center;
+	position: absolute;
+	left: 570px;
+	top: 300px;
+	z-index: 5;
+	display: none;
+}
+
 .columns {
 	clear: left;
 	float: none !important;
@@ -250,6 +261,10 @@ ol ol ol ol ol{list-style:decimal;}
 	border-bottom:1px solid #D7D7D7;
 }
 
+.gallery img {
+	border-style: none;
+}
+
 .tree ul li a:hover {
 	text-decoration: none;
 }
@@ -289,4 +304,9 @@ h3 .legend {
 	color: gray;
 	font-weight: normal;
 	font-size: 0.7em;
+}
+
+.beta {
+	height: 45px;
+	background: url('/images/beta.gif') no-repeat right center;
 }

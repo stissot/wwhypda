@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-.page_title {
+.rock_title {
 	height: 32px;
 	padding-left: 35px;
 	background: url('/images/rock32.png') no-repeat left center;
@@ -17,17 +17,6 @@
 
 .rockImage {
 	float: right;
-}
-
-#loading {
-	width: 16px;
-	height: 16px;
-	background: url('/images/loading.gif') no-repeat center center;
-	position: relative;
-	left: 340px;
-	top: 120px;
-	z-index: 5;
-	display: none;
 }
 
 #rockMeasFilter {
@@ -100,6 +89,10 @@ table.rawData .colQuality, table.rawData .colFracturation {
 	width: 100px;
 }
 
-table.rawData .colCustom {
-	width: 370px;
+table.rawData .colSample {
+	width: 70px;
+}
+
+table.rawData .colSource {
+	width: 300px;
 }
