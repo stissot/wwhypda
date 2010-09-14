@@ -25,6 +25,7 @@ $(document).ready(function() {
 });
 
 function loadDetail(rockId) {
+	$('#loading').show();
 	$('.maincontent').load('/rock-type/detail', {format:'html',id:rockId}, function() {
 		var options = {
 				target:	'#rockParamSummary', // target element(s) to be updated with server response
@@ -41,6 +42,7 @@ function loadDetail(rockId) {
 }
 
 function registerDataLinks() {
+	$('#loading').hide();
 	$('a.viewData').click(function(e) {
 		$('#data').load($(this).attr('href'), registerRawEdit)
 		return false;

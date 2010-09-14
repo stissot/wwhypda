@@ -19,6 +19,17 @@
 	float: right;
 }
 
+#loading {
+	width: 16px;
+	height: 16px;
+	background: url('/images/loading.gif') no-repeat center center;
+	position: relative;
+	left: 340px;
+	top: 120px;
+	z-index: 5;
+	display: none;
+}
+
 #rockMeasFilter {
 	clear: both;
 	font-size: 0.8em;
