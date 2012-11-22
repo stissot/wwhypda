@@ -13,10 +13,11 @@
 </ul>
 <h2>Installation</h2>
 <ul>
+	<li>Get a local copy of the project master <code>git clone https://github.com/stissot/wwhypda.git</code></li>
 	<li>Setup a new user and MySQL database and import <code>wwhypda.sql</code></li>
 	<li>Copy <code>application/configs/application.ini.sample</code> to <code>application/configs/application.ini</code></li>
 	<li>Edit <code>application.ini</code>, complete the database credentials (user, passwd, host)</li>
-	<li>Setup a new VirtualHost in Apache (DocumentRoot must be /public) with <code>AllowOverrides FileInfo</code></li>
+	<li>Setup a new VirtualHost in Apache (DocumentRoot must target the public subfolder) with <code>AllowOverrides FileInfo</code></li>
 	<li>Load the page <a href="http://dev.wwhypda.org/rock-type/index">http://<span class="caps">YOURHOST</span>/rock-type/index</a></li>
 </ul>
 <h2>Screenshots</h2>
