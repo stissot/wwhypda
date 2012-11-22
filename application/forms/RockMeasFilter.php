@@ -1,41 +1,60 @@
 <?php
-
-/**
- * Form filter for rock types measurements
+namespace WWHYPDA\Form;
+/********************************************************************
+ * The World Wide Hydrogeological Parameters Database
+ *
+ * Copyright (c) 2011 All rights reserved
  * 
- * @author sylvain
- */
-class My_Form_RockMeasFilter extends ZendX_JQuery_Form {
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ********************************************************************/
 
-	// protected $idRockType;
-/*
-	public function setRockType($idRockType)
-	{
-		$this->idRockType = $idRockType;
-	}
-*/
+use \WWHYPDA\Model as Model;
+
+/** 
+ * Table filter for rock types measurements
+ * 
+ * @author Sylvain Tissot <sylvain.tissot@ecodev.ch>
+ */
+class RockMeasFilter extends ZendX_JQuery_Form {
+
+	/**
+	 * Construct the filter form
+	 */
 	public function init()
 	{
 		$this->setMethod('POST');
 		$this->setAction('count?format=html' . $this->idRockType);
 		
-		$scales = My_Model_ScaleMapper::findAllAssoc();
+		$scales = Model\ScaleMapper::findAllAssoc();
 		$scales[-1] = '-- all --';
 		ksort($scales);
 		
-		$qualityLevels = My_Model_QualityMapper::findAllAssoc();
+		$qualityLevels = Model\QualityMapper::findAllAssoc();
 		$qualityLevels[-1] = '-- all --';
 		ksort($qualityLevels);
 		
-		$fracturationDegrees = My_Model_FracturationMapper::findAllAssoc();
+		$fracturationDegrees = Model\FracturationMapper::findAllAssoc();
 		$fracturationDegrees[-1] = '-- all --';
 		ksort($fracturationDegrees);
 		
-		$experimentTypes = My_Model_ExperimentMapper::findAllAssoc();
+		$experimentTypes = Model\ExperimentMapper::findAllAssoc();
 		$experimentTypes[-1] = '-- all --';
 		ksort($experimentTypes);
 		
-		$interpretationMethods = My_Model_InterpretationMapper::findAllAssoc();
+		$interpretationMethods = Model\InterpretationMapper::findAllAssoc();
 		$interpretationMethods[-1] = '-- all --';
 		ksort($interpretationMethods);
 
@@ -99,36 +118,8 @@ class My_Form_RockMeasFilter extends ZendX_JQuery_Form {
 		$table->removeDecorator('Label');
 		$table->removeDecorator('Fieldset');
 		$table->removeDecorator('DtDdWrapper');
-		
-		// Group elements for the first line of table
-		/*
-		$this->addDisplayGroup(array('scale','quality'), 'row1');
-		$element = $this->getDisplayGroup('row1');
-		$deco = $element->getDecorator('HtmlTag');
-		$deco->setOption('tag','tr');
-		$element->removeDecorator('Label');
-		$element->removeDecorator('Fieldset');
-		$element->removeDecorator('DtDdWrapper');
 
-		// Group elements for the second line of table
-		$this->addDisplayGroup(array('fracturation','value_op','value_val'), 'row2');
-		$element = $this->getDisplayGroup('row2');
-		$deco = $element->getDecorator('HtmlTag');
-		$deco->setOption('tag','tr');
-		$element->removeDecorator('Label');
-		$element->removeDecorator('Fieldset');
-		$element->removeDecorator('DtDdWrapper');
-
-		// Group elements for the third line of table
-		$this->addDisplayGroup(array('experiment','method'), 'row3');
-		$element = $this->getDisplayGroup('row3');
-		$deco = $element->getDecorator('HtmlTag');
-		$deco->setOption('tag','tr');
-		$element->removeDecorator('Label');
-		$element->removeDecorator('Fieldset');
-		$element->removeDecorator('DtDdWrapper');
-*/
-		My_Form_Utility::defineFormAsTable($this, false, false, array('idRockType'));
+		Utility::defineFormAsTable($this, false, false, array('idRockType'));
 
 		$this->getElement('value_op')->setDecorators(array(
 			'ViewHelper',

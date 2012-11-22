@@ -1,17 +1,38 @@
 <?php
+namespace WWHYPDA\Model;
+/********************************************************************
+ * The World Wide Hydrogeological Parameters Database
+ *
+ * Copyright (c) 2011 All rights reserved
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ********************************************************************/
 
 /** 
- * Mapper to manipulate sample's scales
+ * Mapper to get objects of class Scale
  * 
- * @author sylvain
+ * @author Sylvain Tissot <sylvain.tissot@ecodev.ch>
  */
-abstract class My_Model_ScaleMapper extends My_Model_AbstractMapper
+abstract class ScaleMapper extends AbstractMapper
 {
 
-	/*
-	 * List the scales (return array of objects)
+	/**
+	 * Get all the scales (as an array)
 	 * 
-	 * @return array My_Model_Scale
+	 * @return WWHYPDA_Model_Scale[]
 	 */
 	public static function findAll()
 	{
@@ -21,9 +42,10 @@ abstract class My_Model_ScaleMapper extends My_Model_AbstractMapper
 		return $records;
 	}
 
-	/* List the scales (returns associative array)
+	/**
+	 * Get all the scales (as an associative array)
 	 * 
-	 * @return array
+	 * @return WWHYPDA_Model_Scale[]
 	 */
 	public static function findAllAssoc()
 	{
@@ -36,11 +58,11 @@ abstract class My_Model_ScaleMapper extends My_Model_AbstractMapper
 		return $scales;
 	}
 
-	/*
-	 * Find a scale by Id
+	/**
+	 * Get a scale by Id
 	 * 
 	 * @param int $idScale
-	 * @return My_Model_Scale
+	 * @return WWHYPDA_Model_Scale
 	 */
 	public static function findById($idScale)
 	{

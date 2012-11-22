@@ -1,4 +1,26 @@
 <?php
+namespace WWHYPDA\Model;
+/********************************************************************
+ * The World Wide Hydrogeological Parameters Database
+ *
+ * Copyright (c) 2011 All rights reserved
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ********************************************************************/
+
 /********************************
  * Retro-support of get_called_class()
  * Tested and works in PHP 5.2.4
@@ -48,7 +70,13 @@ if(!function_exists('get_called_class')) {
 	}
 } 
 
-abstract class My_Model_AbstractMapper
+/** 
+ * Abstract class that maps a model class to a database table
+ * 
+ * @author Sylvain Tissot <sylvain.tissot@ecodev.ch>
+ */
+ 
+abstract class AbstractMapper
 {
 	private static $dbTables = array();
 	
@@ -58,7 +86,7 @@ abstract class My_Model_AbstractMapper
 		if (!array_key_exists($className, self::$dbTables))
 		{
 			preg_match("/([^_]+)Mapper/", $className, $r);
-			$dbTableClassName = 'My_Model_DbTable_' . $r[1];
+			$dbTableClassName = 'WWHYPDA_Model_DbTable_' . $r[1];
 			$dbTable = new $dbTableClassName();
 			self::$dbTables[$className] = $dbTable;
 		}

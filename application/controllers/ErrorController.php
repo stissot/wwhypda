@@ -1,12 +1,44 @@
 <?php
+namespace WWHYPDA;
+/********************************************************************
+ * The World Wide Hydrogeological Parameters Database
+ *
+ * Copyright (c) 2011 All rights reserved
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ********************************************************************/
 
+use \WWHYPDA\Model as Model;
+use \WWHYPDA\Form as Form;
+
+/** 
+ * Controller that handles errors
+ * 
+ * @author Sylvain Tissot <sylvain.tissot@ecodev.ch>
+ */
 class ErrorController extends Zend_Controller_Action
 {
 
+	/**
+	 * This controller captures not only application errors, but also errors in the controller
+	 * chain arising from missing controller classes and/or action methods (404 errors)
+	 */
     public function errorAction()
     {
         $errors = $this->_getParam('error_handler');
-        
         switch ($errors->type) {
             case Zend_Controller_Plugin_ErrorHandler::EXCEPTION_NO_ROUTE:
             case Zend_Controller_Plugin_ErrorHandler::EXCEPTION_NO_CONTROLLER:
@@ -36,6 +68,9 @@ class ErrorController extends Zend_Controller_Action
         $this->view->request   = $errors->request;
     }
 
+	/**
+	 * Return the logger object from the bootstrap container if available
+	 */
     public function getLog()
     {
         $bootstrap = $this->getInvokeArg('bootstrap');

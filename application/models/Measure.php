@@ -1,11 +1,32 @@
 <?php
+namespace WWHYPDA\Model;
+/********************************************************************
+ * The World Wide Hydrogeological Parameters Database
+ *
+ * Copyright (c) 2011 All rights reserved
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ********************************************************************/
 
 /** 
- * A measurement parameter
+ * Model class for measurements
  * 
- * @author sylvain
+ * @author Sylvain Tissot <sylvain.tissot@ecodev.ch>
  */
-class My_Model_Measure extends Zend_Db_Table_Row_Abstract {
+class Measure extends Zend_Db_Table_Row_Abstract {
 	/**
 	 *  Return the column name in the database corresponding to the property name in the model
 	 *  
@@ -29,23 +50,23 @@ class My_Model_Measure extends Zend_Db_Table_Row_Abstract {
 	/**
 	 * Return the sample on which the measure was made
 	 * 
-	 * @return My_Model_Sample
+	 * @return WWHYPDA_Model_Sample
 	 */
 	public function getSample()
 	{
 		if (null != $this->sample)
-			return My_Model_SampleMapper::findById($this->sample);
+			return SampleMapper::findById($this->sample);
 		return false;
 	}
 
 	/**
 	 * Return the level of quality of the measure
 	 * 
-	 * @return My_Model_Quality
+	 * @return WWHYPDA_Model_Quality
 	 */
 	public function getQuality()
 	{
-		return My_Model_QualityMapper::findById($this->quality);
+		return QualityMapper::findById($this->quality);
 	}
 	
 }

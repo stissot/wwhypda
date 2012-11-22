@@ -1,19 +1,41 @@
 <?php
+namespace WWHYPDA\Model;
+/********************************************************************
+ * The World Wide Hydrogeological Parameters Database
+ *
+ * Copyright (c) 2011 All rights reserved
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ********************************************************************/
 
 /** 
- * Mapper to get rock types
+ * Mapper to get RockType objects
  * 
- * @author sylvain
+ * @author Sylvain Tissot <sylvain.tissot@ecodev.ch>
  */
-abstract class My_Model_RockTypeMapper extends My_Model_AbstractMapper
+abstract class RockTypeMapper extends AbstractMapper
 {
 
-	/*
-	 * Finds the rock types
+	/**
+	 * Get the rock types
 	 * 
 	 * @param int $idParent the parent rock type ID
 	 * @param int $status with hidden rock types
-	 * @return array My_Model_RockType
+	 *
+	 * @return WWHYPDA_Model_RockType[]
 	 */
 	public static function findAll($idParent=0,$status=0)
 	{
@@ -26,11 +48,12 @@ abstract class My_Model_RockTypeMapper extends My_Model_AbstractMapper
 		return $records;
 	}
 
-	/*
-	 * Find a rock type by Id
+	/**
+	 * Get a rock type by Id
 	 * 
 	 * @param int $idRockType the rock type ID
-	 * @return My_Model_RockType
+	 *
+	 * @return WWHYPDA_Model_RockType
 	 */
 	public static function findById($idRockType)
 	{

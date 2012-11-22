@@ -1,18 +1,39 @@
 <?php
+namespace WWHYPDA\Model;
+/********************************************************************
+ * The World Wide Hydrogeological Parameters Database
+ *
+ * Copyright (c) 2011 All rights reserved
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ********************************************************************/
 
 /** 
- * Mapper to manipulate the interpretation methods
+ * Mapper to get objects of type Interpretation
  * 
- * @author sylvain
+ * @author Sylvain Tissot <sylvain.tissot@ecodev.ch>
  */
-abstract class My_Model_InterpretationMapper extends My_Model_AbstractMapper
+abstract class InterpretationMapper extends AbstractMapper
 {
 
-	/*
-	 * List the interpretation methods (array of objects)
+	/**
+	 * Get all the interpretation methods as an array
 	 * 
-	 * @param int $status show hidden methods
-	 * @return array My_Model_Interpretation
+	 * @param int $status set to 1 to include hidden records (default 0)
+	 * @return WWHYPDA_Model_Interpretation[]
 	 */
 	public static function findAll($status=0)
 	{
@@ -26,11 +47,11 @@ abstract class My_Model_InterpretationMapper extends My_Model_AbstractMapper
 		return $rows;
 	}
 
-	/*
-	 * List the interpretation methods (associative array)
+	/**
+	 * Get all the interpretation methods as an associative array
 	 * 
-	 * @param int $status show hidden methods
-	 * @return array
+	 * @param int $status set to 1 to include hidden records (default 0)
+	 * @return WWHYPDA_Model_Interpretation[]
 	 */
 	public static function findAllAssoc($status=0)
 	{
@@ -43,11 +64,11 @@ abstract class My_Model_InterpretationMapper extends My_Model_AbstractMapper
 		return $methods;
 	}
 	
-	/*
-	 * Find an interpretation method by Id
+	/**
+	 * Get an interpretation method by Id
 	 * 
 	 * @param int $idInterpretation
-	 * @return My_Model_Interpretation
+	 * @return WWHYPDA_Model_Interpretation
 	 */
 	public static function findById($idInterpretation)
 	{

@@ -1,17 +1,39 @@
 <?php
-
-/**
- * Abstract form class for common functions such as Table rendering
+namespace WWHYPDA\Form;
+/********************************************************************
+ * The World Wide Hydrogeological Parameters Database
+ *
+ * Copyright (c) 2011 All rights reserved
  * 
- * @author sylvain
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ********************************************************************/
+
+/** 
+ * Useful functions for form handling
+ * 
+ * @author Sylvain Tissot <sylvain.tissot@ecodev.ch>
  */
-abstract class My_Form_Utility
+abstract class Utility
 {
 	/**
 	 * Defines the form as an HTML table. The form itself will be set decorators for <table> and all 
 	 * its elements will have decorators for <td>
 	 * @param Zend_Form $form
-	 * @param boolean $includeRowDecorator use false, if you want to group <td> in <tr> yourself with DisplayGroup
+	 * @param boolean $includeRowDecorator set to false if you want to group <td> in <tr> yourself with DisplayGroup
+	 * @return Zend_Form
 	 */
 	public static function defineFormAsTable(Zend_Form $form, $includeRowDecorator = true, $includeFormDecorator = true, array $excludeList = null)
 	{
@@ -55,9 +77,9 @@ abstract class My_Form_Utility
 	}
 	
 	/**
-	 * Set the label after the elemnt for all checkboxes element (recusively in subforms)
+	 * Render the label after all checkboxes element (recusively in subforms)
 	 * @param Zend_Form $form
-	 * @return null
+	 * @return void
 	 */
 	public static function invertCheckboxes(Zend_Form $form)
 	{
@@ -78,7 +100,7 @@ abstract class My_Form_Utility
     
         foreach ($form->getSubForms() as $name => $subForm)
         {
-            My_Form_Utility::invertCheckboxes($subForm);
+            Utility::invertCheckboxes($subForm);
         }
 	}
 

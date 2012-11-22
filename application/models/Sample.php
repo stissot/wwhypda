@@ -1,11 +1,32 @@
 <?php
+namespace WWHYPDA\Model;
+/********************************************************************
+ * The World Wide Hydrogeological Parameters Database
+ *
+ * Copyright (c) 2011 All rights reserved
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ********************************************************************/
 
 /** 
- * A rock sample
+ * Model class for a rock sample
  * 
- * @author sylvain
+ * @author Sylvain Tissot <sylvain.tissot@ecodev.ch>
  */
-class My_Model_Sample extends Zend_Db_Table_Row_Abstract {
+class Sample extends Zend_Db_Table_Row_Abstract {
 	/**
 	 *  Return the column name in the database corresponding to the property name in the model
 	 *  @param string $columnName, the name in the model
@@ -26,27 +47,47 @@ class My_Model_Sample extends Zend_Db_Table_Row_Abstract {
 		}
 	}
 
+	/**
+	 *  Get the scale of the sample
+	 *
+	 *  @return WWHYPDA_Model_Scale
+	 */
 	public function getScale()
 	{
 		if (null != $this->scale)
-			return My_Model_ScaleMapper::findById($this->scale);
-		return null;
-	}
-	
-	public function getFracturation()
-	{
-		if (null != $this->fracturation)
-			return My_Model_FracturationMapper::findById($this->fracturation);
+			return ScaleMapper::findById($this->scale);
 		return null;
 	}
 
+	/**
+	 *  Get the fracturation degree of the sample
+	 *
+	 *  @return WWHYPDA_Model_Fracturation
+	 */
+	public function getFracturation()
+	{
+		if (null != $this->fracturation)
+			return FracturationMapper::findById($this->fracturation);
+		return null;
+	}
+
+	/**
+	 *  Get the measurements group of the sample
+	 *
+	 *  @return WWHYPDA_Model_MeasureGroup
+	 */
 	public function getMeasureGroup()
 	{
 		if (null != $this->measureGroup)
-			return My_Model_MeasureGroupMapper::findById($this->measureGroup);
+			return MeasureGroupMapper::findById($this->measureGroup);
 		return null;
 	}
 	
+	/**
+	 *  Get the geographical site where the sample was extracted
+	 *
+	 *  @return WWHYPDA_Model_Site
+	 */
 	public function getSite()
 	{
 		$measureGroup = $this->getMeasureGroup();
