@@ -17,10 +17,11 @@ h3. Technologies used
 
 h2. Installation
 
+* Get a local copy of the project master <code>git clone https://github.com/stissot/wwhypda.git</code>
 * Setup a new user and MySQL database and import <code>wwhypda.sql</code>
 * Copy <code>application/configs/application.ini.sample</code> to <code>application/configs/application.ini</code>
 * Edit <code>application.ini</code>, complete the database credentials (user, passwd, host)
-* Setup a new VirtualHost in Apache (DocumentRoot must be /public) with <code>AllowOverrides FileInfo</code>
+* Setup a new VirtualHost in Apache (DocumentRoot must target the public subfolder) with <code>AllowOverrides FileInfo</code>
 * Load the page "http://YOURHOST/rock-type/index":http://dev.wwhypda.org/rock-type/index
 
 h2. Screenshots
