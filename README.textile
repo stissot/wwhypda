@@ -1,0 +1,25 @@
+h1. The World Wide Hydrogeological Database
+
+h2. About the project
+
+This project was originaly launched in 2006 to help hydrogeologists or reservoir engineers for the characterization of underground reservoirs with respect to their flow and transport properties by providing a catalogue of typical values, or typical statistical distributions of physical properties of rock types.
+
+The application is currently being improved to facilitate data query and editing. Please feel free to contribute.
+You can reach the staging server at "http://dev.wwhypda.org/":http://dev.wwhypda.org/
+
+h3. Technology used
+
+* Zend Framework 1.x
+* jQuery
+* PHP 5.3
+* MySQL 5.5
+* JavaScript
+* XHTML
+
+h2. Installation
+
+* Setup a new user and MySQL database and import <code>wwhypda.sql</code>
+* Copy <code>application/config/configs/application.ini.sample</code> to <code>application/config/configs/application.ini</code>
+* Edit <code>application.ini</code> with the DB access data (user, passwd, host)
+* Setup a new VirtualHost in Apache (DocumentRoot is /public) with AllowOverrides FileInfo
+* Load the page "http://YOURHOST/rock-type/index":http://dev.wwhypda.org/rock-type/index
