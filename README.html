@@ -1,9 +1,8 @@
 <h1>The World Wide Hydrogeological Database</h1>
 <h2>About the project</h2>
 <p>This project was originaly launched in 2006 to help hydrogeologists or reservoir engineers for the characterization of underground reservoirs with respect to their flow and transport properties by providing a catalogue of typical values, or typical statistical distributions of physical properties of rock types.</p>
-<p>The application is currently being improved to facilitate data query and editing. Please feel free to contribute.<br />
-You can reach the staging server at <a href="http://dev.wwhypda.org/">http://dev.wwhypda.org/</a></p>
-<h3>Technology used</h3>
+<p>The application is currently being improved to facilitate data query and submission (crowdsourcing). Please feel free to contribute either to data or to the application code. You can reach the staging server at <a href="http://dev.wwhypda.org/">http://dev.wwhypda.org/</a></p>
+<h3>Technologies used</h3>
 <ul>
 	<li>Zend Framework 1.x</li>
 	<li>jQuery</li>
@@ -15,8 +14,16 @@ You can reach the staging server at <a href="http://dev.wwhypda.org/">http://dev
 <h2>Installation</h2>
 <ul>
 	<li>Setup a new user and MySQL database and import <code>wwhypda.sql</code></li>
-	<li>Copy <code>application/config/configs/application.ini.sample</code> to <code>application/config/configs/application.ini</code></li>
-	<li>Edit <code>application.ini</code> with the DB access data (user, passwd, host)</li>
-	<li>Setup a new VirtualHost in Apache (DocumentRoot is /public) with AllowOverrides FileInfo</li>
+	<li>Copy <code>application/configs/application.ini.sample</code> to <code>application/configs/application.ini</code></li>
+	<li>Edit <code>application.ini</code>, complete the database credentials (user, passwd, host)</li>
+	<li>Setup a new VirtualHost in Apache (DocumentRoot must be /public) with <code>AllowOverrides FileInfo</code></li>
 	<li>Load the page <a href="http://dev.wwhypda.org/rock-type/index">http://<span class="caps">YOURHOST</span>/rock-type/index</a></li>
 </ul>
+<h2>Screenshots</h2>
+<p><img src="http://dev.wwhypda.org/images/raw_data.png" title="View raw measurements" alt="View raw measurements" /><br />
+<img src="http://dev.wwhypda.org/images/statistics.png" title="Statistical distribution" alt="Statistical distribution" /><br />
+<img src="http://dev.wwhypda.org/images/inline_edit.png" title="Measurement inline editing" alt="Measurement inline editing" /><br />
+<img src="http://dev.wwhypda.org/images/contribute_step1.png" title="Data entry: Step 1" alt="Data entry: Step 1" /><br />
+<img src="http://dev.wwhypda.org/images/contribute_step2.png" title="Data entry: Step 2" alt="Data entry: Step 2" /><br />
+<img src="http://dev.wwhypda.org/images/contribute_step3.png" title="Data entry: Step 3" alt="Data entry: Step 3" /><br />
+<img src="http://dev.wwhypda.org/images/contribute_step4.png" title="Data entry: Step 4" alt="Data entry: Step 4" /></p>

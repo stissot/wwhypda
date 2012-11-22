@@ -4,10 +4,9 @@ h2. About the project
 
 This project was originaly launched in 2006 to help hydrogeologists or reservoir engineers for the characterization of underground reservoirs with respect to their flow and transport properties by providing a catalogue of typical values, or typical statistical distributions of physical properties of rock types.
 
-The application is currently being improved to facilitate data query and editing. Please feel free to contribute.
-You can reach the staging server at "http://dev.wwhypda.org/":http://dev.wwhypda.org/
+The application is currently being improved to facilitate data query and submission (crowdsourcing). Please feel free to contribute either to data or to the application code. You can reach the staging server at "http://dev.wwhypda.org/":http://dev.wwhypda.org/
 
-h3. Technology used
+h3. Technologies used
 
 * Zend Framework 1.x
 * jQuery
@@ -19,7 +18,17 @@ h3. Technology used
 h2. Installation
 
 * Setup a new user and MySQL database and import <code>wwhypda.sql</code>
-* Copy <code>application/config/configs/application.ini.sample</code> to <code>application/config/configs/application.ini</code>
-* Edit <code>application.ini</code> with the DB access data (user, passwd, host)
-* Setup a new VirtualHost in Apache (DocumentRoot is /public) with AllowOverrides FileInfo
+* Copy <code>application/configs/application.ini.sample</code> to <code>application/configs/application.ini</code>
+* Edit <code>application.ini</code>, complete the database credentials (user, passwd, host)
+* Setup a new VirtualHost in Apache (DocumentRoot must be /public) with <code>AllowOverrides FileInfo</code>
 * Load the page "http://YOURHOST/rock-type/index":http://dev.wwhypda.org/rock-type/index
+
+h2. Screenshots
+
+!http://dev.wwhypda.org/images/raw_data.png(View raw measurements)!
+!http://dev.wwhypda.org/images/statistics.png(Statistical distribution)!
+!http://dev.wwhypda.org/images/inline_edit.png(Measurement inline editing)!
+!http://dev.wwhypda.org/images/contribute_step1.png(Data entry: Step 1)!
+!http://dev.wwhypda.org/images/contribute_step2.png(Data entry: Step 2)!
+!http://dev.wwhypda.org/images/contribute_step3.png(Data entry: Step 3)!
+!http://dev.wwhypda.org/images/contribute_step4.png(Data entry: Step 4)!
